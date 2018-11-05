@@ -23,7 +23,7 @@ body {
 /*home page styles*/
 
 .masthead {
-    background-image: linear-gradient( 135deg, rgb(24, 42, 115) 0%, rgb(33, 138, 174) 69%, rgb(32, 167, 172) 89%) !important;
+    background-image: linear-gradient(to right, #304352, #d7d2cc) !important;
 }
 
 .masthead.segment {
@@ -67,7 +67,7 @@ body {
 }
 
 .ui.fixed.menu {
-    background: rgb(53, 52, 52) !important;
+    background-image: linear-gradient(to right, #304352, #d7d2cc) !important;
 }
 
 .ui.main.container,

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Menu, Container, Button } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Menu, Container, Button } from 'semantic-ui-react';
 
 class NavBar extends Component {
   render() {
@@ -7,26 +7,26 @@ class NavBar extends Component {
       <Menu inverted fixed="top">
         <Container>
           <Menu.Item header>
-            <img src="assets/logo.png" alt="logo" />
-            On-Point Events
+            <img src="assets/baseline_bubble_chart_white_18dp.png" alt="logo" />
+            OnPoint Events
           </Menu.Item>
           <Menu.Item name="Events" />
           <Menu.Item>
-            <Button floated="right" inverted color='yellow' content="Create Event" />
+            <Button floated="right" color='yellow' inverted content="Create Event" />
           </Menu.Item>
           <Menu.Item position="right">
             <Button basic inverted content="Login" />
             <Button
               basic
               inverted
-              
               content="Sign Out"
               style={{ marginLeft: '0.5em' }}
             />
           </Menu.Item>
         </Container>
       </Menu>
-    )
+    );
   }
 }
-export default NavBar
+
+export default NavBar;
