@@ -36,7 +36,7 @@ class EventListItem extends Component {
         </Segment>
         <Segment clearing>
           <span>{event.description}</span>
-          <div>
+          <div style={{ marginTop: "20px"}}>
             <Button
               onClick={deleteEvent(event.id)}
               as="a"

@@ -27,8 +27,9 @@ body {
 }
 
 .masthead.segment {
-    min-height: 700px;
-    padding: 1em 0 !important;
+    min-height: 500px;
+    padding: 2em 0 !important;
+    height: 100vh;
 }
 
 .masthead .ui.menu .ui.button,
@@ -55,7 +56,6 @@ body {
 .secondary.inverted.pointing.menu {
     border: none;
 }
-
 
 /*end home page styles*/
 
