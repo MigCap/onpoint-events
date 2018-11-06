@@ -12,12 +12,12 @@ const initialState = [
     city: 'London, UK',
     venue: "Tower of London, St Katharine's & Wapping, London",
     hostedBy: 'Bob',
-    hostPhotoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
+    hostPhotoURL: 'https://randomuser.me/api/portraits/men/75.jpg',
     attendees: [
       {
         id: 'a',
         name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
+        photoURL: 'https://randomuser.me/api/portraits/men/75.jpg'
       },
       {
         id: 'b',
@@ -46,7 +46,7 @@ const initialState = [
       {
         id: 'a',
         name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
+        photoURL: 'https://randomuser.me/api/portraits/men/75.jpg'
       }
     ]
   }
