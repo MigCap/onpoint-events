@@ -32,7 +32,6 @@ class NavBar extends Component {
             OnPoint Events
           </Menu.Item>
           <Menu.Item as={NavLink} to="/events" name="Events" />
-          <Menu.Item as={NavLink} to="/test" name="Tests" />
           {authenticated && (
             <Menu.Item as={NavLink} to="/people" name="People" />
           )}
