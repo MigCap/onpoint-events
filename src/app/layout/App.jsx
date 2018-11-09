@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Container } from 'semantic-ui-react';
 import { Route, Switch } from 'react-router-dom';
 import EventDashboard from '../../components/event/EventDashboard/EventDashboard';
@@ -10,10 +10,12 @@ import PeopleDashboard from '../../components/user/PeopleDashboard/PeopleDashboa
 import EventDetailedPage from '../../components/event/EventDetailed/EventDetailedPage';
 import HomePage from '../../components/home/HomePage';
 import TestComponent from '../../components/testing/TestComponent';
+import ModalManager from '../../components/modals/ModalManager';
 class App extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
+        <ModalManager />
         <Switch>
           <Route exact path="/" component={HomePage} />
         </Switch>
@@ -37,7 +39,7 @@ class App extends Component {
             </div>
           )}
         />
-      </div>
+      </Fragment>
     );
   }
 }
