@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 // import Script from 'react-load-script';
+// import GoogleMapReact from 'google-map-react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from 'react-places-autocomplete';
-import { incrementCounter, decrementCounter } from './testActions';
+import { incrementAsync, decrementAsync } from './testActions';
 import { openModal } from '../modals/modalActions';
 
 const mapState = state => ({
-  data: state.test.data
+  data: state.test.data,
+  loading: state.test.loading
 });
 
 const actions = {
-  incrementCounter,
-  decrementCounter,
+  incrementAsync,
+  decrementAsync,
   openModal
 };
+
+// const Marker = () => <Icon name='marker' size='big' color='red'/>
 
 class TestComponent extends Component {
   static defaultProps = {
@@ -54,7 +58,13 @@ class TestComponent extends Component {
       onChange: this.onChange
     };
 
-    const { incrementCounter, decrementCounter, data, openModal } = this.props;
+    const {
+      incrementAsync,
+      decrementAsync,
+      data,
+      openModal,
+      loading
+    } = this.props;
     return (
       <div>
         {/*<Script
@@ -63,8 +73,18 @@ class TestComponent extends Component {
         />*/}
         <h1>Test Area</h1>
         <h3>The answer is: {data}</h3>
-        <Button onClick={incrementCounter} color="green" content="Increment" />
-        <Button onClick={decrementCounter} color="red" content="Decrement" />
+        <Button
+          loading={loading}
+          onClick={incrementAsync}
+          color="green"
+          content="Increment"
+        />
+        <Button
+          loading={loading}
+          onClick={decrementAsync}
+          color="red"
+          content="Decrement"
+        />
         <Button
           onClick={() => openModal('TestModal', { data: 43 })}
           color="teal"
@@ -78,6 +98,20 @@ class TestComponent extends Component {
           )}
           <button type="submit">Submit</button>
         </form>
+
+        {/* <div style={{ height: '300px', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyCTN8X_q_xtMYCnacteF4ZQj0RKXodI080' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <Marker
+            lat={59.955413}
+            lng={30.337844}
+            text={'Kreyser Avrora'}
+          />
+        </GoogleMapReact>
+      </div> */}
       </div>
     );
   }
