@@ -11,10 +11,8 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import { loadEvents } from './components/event/eventActions';
 
 const store = configureStore();
-store.dispatch(loadEvents());
 
 const rootEl = document.getElementById('root');
 

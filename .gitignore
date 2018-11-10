@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# fbConfig
+/src/app/config
+
 # testing
 /coverage
 
