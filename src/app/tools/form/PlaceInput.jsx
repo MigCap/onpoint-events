@@ -40,9 +40,11 @@ class PlaceInput extends Component {
           />
         )}
         {touched && error && (
-          <Label basic color="red">
-            {error}
-          </Label>
+          <div style={{ margin: '10px auto' }}>
+            <Label basic color="red">
+              {error}
+            </Label>
+          </div>
         )}
       </Form.Field>
     );

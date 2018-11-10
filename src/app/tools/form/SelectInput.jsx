@@ -1,7 +1,14 @@
-import React from 'react'
-import { Form, Label, Select } from 'semantic-ui-react'
+import React from 'react';
+import { Form, Label, Select } from 'semantic-ui-react';
 
-const SelectInput = ({input, type, placeholder, multiple, options, meta: {touched, error}}) => {
+const SelectInput = ({
+  input,
+  type,
+  placeholder,
+  multiple,
+  options,
+  meta: { touched, error }
+}) => {
   return (
     <Form.Field error={touched && !!error}>
       <Select
@@ -11,9 +18,15 @@ const SelectInput = ({input, type, placeholder, multiple, options, meta: {touche
         options={options}
         multiple={multiple}
       />
-      {touched && error && <Label basic color='red'>{error}</Label>}
+      {touched && error && (
+        <div style={{ margin: '10px auto' }}>
+          <Label basic color="red">
+            {error}
+          </Label>
+        </div>
+      )}
     </Form.Field>
-  )
-}
+  );
+};
 
-export default SelectInput
+export default SelectInput;
