@@ -10,7 +10,10 @@ const SignedInMenu = ({ signOut, profile }) => {
         spaced="right"
         src={profile.photoURL || '/assets/user.png'}
       />
-      <Dropdown pointing="top left" text={profile.displayName}>
+      <Dropdown
+        pointing="top left"
+        text={profile.displayName}
+        style={{ color: '#304352', fontWeight: 'bold' }}>
         <Dropdown.Menu>
           <Dropdown.Item text="Create Event" icon="plus" />
           <Dropdown.Item text="My Events" icon="calendar" />
