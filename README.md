@@ -1,3 +1,14 @@
+## About Project
+
+This is a personal / training project to emulate a events social app made with ReactJS, Redux, Thunk environment.
+
+Some of the functionalities:
+
+- Auth sign in/up users.
+-
+
+All data live in Firebase/Firestore google services.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
