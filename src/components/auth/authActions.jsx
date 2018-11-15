@@ -31,7 +31,7 @@ export const registerUser = user => async (
     let createdUser = await firebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password);
-    console.log(createdUser);
+    // console.log(createdUser);
 
     // update the auth profile
     await createdUser.updateProfile({

@@ -129,7 +129,12 @@ class PhotosPage extends Component {
               style={{ padding: '0 0 10px 0' }}
             />
             <Dropzone onDrop={this.onDrop} multiple={false}>
-              <div style={{ padding: '30px 10px 0 10px', textAlign: 'center' }}>
+              <div
+                style={{
+                  padding: '30px 10px 0 10px',
+                  textAlign: 'center',
+                  cursor: 'pointer'
+                }}>
                 <Icon name="upload" size="huge" />
                 <Header content="Drop image here or click to upload" />
               </div>
@@ -175,12 +180,14 @@ class PhotosPage extends Component {
                 />
                 <Button.Group>
                   <Button
+                    loading={loading}
                     onClick={this.uploadImage}
                     style={{ width: '115px' }}
                     positive
                     icon="check"
                   />
                   <Button
+                    disabled={loading}
                     onClick={this.cancelCrop}
                     style={{ width: '115px' }}
                     icon="close"
