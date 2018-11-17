@@ -21,7 +21,7 @@ class EventDetailedInfo extends Component {
   };
 
   render() {
-    const { event } = this.props;
+    const { event, openModal, authenticated } = this.props;
     let eventDate;
     if (event.date) {
       eventDate = event.date.toDate();
@@ -60,12 +60,23 @@ class EventDetailedInfo extends Component {
               <span>{event.venue}</span>
             </Grid.Column>
             <Grid.Column width={4}>
-              <Button
-                onClick={this.showMapToggle}
-                color="teal"
-                size="tiny"
-                content={this.state.showMap ? 'Hide Map' : 'Show Map'}
-              />
+              {authenticated && (
+                <Button
+                  onClick={this.showMapToggle}
+                  color="teal"
+                  size="tiny"
+                  content={this.state.showMap ? 'Hide Map' : 'Show Map'}
+                />
+              )}
+
+              {!authenticated && (
+                <Button
+                  onClick={() => openModal('UnauthModal')}
+                  color="teal"
+                  size="tiny"
+                  content="Show Map"
+                />
+              )}
             </Grid.Column>
           </Grid>
         </Segment>

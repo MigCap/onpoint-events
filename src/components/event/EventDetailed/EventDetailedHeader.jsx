@@ -25,7 +25,9 @@ const EventDetailedHeader = ({
   isGoing,
   goingToEvent,
   cancelGoingToEvent,
-  loading
+  loading,
+  openModal,
+  authenticated
 }) => {
   let eventDate;
   if (event.date) {
@@ -62,14 +64,25 @@ const EventDetailedHeader = ({
       <Segment attached="bottom">
         {!isHost && (
           <div>
-            {isGoing ? (
+            {isGoing && (
               <Button onClick={() => cancelGoingToEvent(event)}>
                 Cancel My Place
               </Button>
-            ) : (
+            )}
+
+            {!isGoing && authenticated && (
               <Button
-                onClick={() => goingToEvent(event)}
                 loading={loading}
+                onClick={() => goingToEvent(event)}
+                color="teal">
+                JOIN THIS EVENT
+              </Button>
+            )}
+
+            {!authenticated && (
+              <Button
+                loading={loading}
+                onClick={() => openModal('UnauthModal')}
                 color="teal">
                 JOIN THIS EVENT
               </Button>
