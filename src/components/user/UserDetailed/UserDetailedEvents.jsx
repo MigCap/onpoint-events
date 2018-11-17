@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  Grid,
-  Header,
-  Image,
-  Menu,
-  Segment,
-  Tab
-} from 'semantic-ui-react';
+import { Card, Grid, Header, Image, Segment, Tab } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
 
@@ -34,7 +26,7 @@ const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
           {events &&
             events.map(event => (
               <Card as={Link} to={`/event/${event.id}`} key={event.id}>
-                <Image src={`/assets/categoryImages/${event.category}.jpg`} />
+                <Image src={`/assets/categoryImages/${event.category}.jpeg`} />
                 <Card.Content>
                   <Card.Header textAlign="center">{event.title}</Card.Header>
                   <Card.Meta textAlign="center">

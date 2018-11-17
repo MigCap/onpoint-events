@@ -1,5 +1,5 @@
 import { toastr } from 'react-redux-toastr';
-import { DELETE_EVENT, FETCH_EVENTS } from './eventConstants';
+import { FETCH_EVENTS } from './eventConstants';
 import {
   asyncActionStart,
   asyncActionFinish,
@@ -116,5 +116,29 @@ export const getEventsForDashboard = lastEvent => async (
   } catch (error) {
     console.log(error);
     dispatch(asyncActionError());
+  }
+};
+
+export const addEventComment = (eventId, values, parentId) => async (
+  dispatch,
+  getState,
+  { getFirebase }
+) => {
+  const firebase = getFirebase();
+  const profile = getState().firebase.profile;
+  const user = firebase.auth().currentUser;
+  let newComment = {
+    parentId: parentId,
+    displayName: profile.displayName,
+    photoURL: profile.photoURL || '/assets/user.png',
+    uid: user.uid,
+    text: values.comment,
+    date: Date.now()
+  };
+  try {
+    await firebase.push(`event_chat/${eventId}`, newComment);
+  } catch (error) {
+    console.log(error);
+    toastr.error('Oops', 'Problem adding comment');
   }
 };
