@@ -4,8 +4,12 @@ This is a personal / training project to emulate a events social app made with R
 
 Some of the functionalities:
 
-- Auth sign in/up users.
--
+- Auth. Sign in/up users.
+- Add, read, modify, cancel events.
+- Live activity throw firebase functions.
+- Full user profile with personal information, profile pics with droping area for uploading & cropping option.
+- Follow, unfollow users.
+- Google maps, places & geocoding API apply for events location.
 
 All data live in Firebase/Firestore google services.
 
