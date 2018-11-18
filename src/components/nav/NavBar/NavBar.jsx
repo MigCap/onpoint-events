@@ -33,7 +33,7 @@ class NavBar extends Component {
     const { auth, profile } = this.props;
     const authenticated = auth.isLoaded && !auth.isEmpty;
     return (
-      <Menu inverted fixed="top">
+      <Menu inverted fixed="top" stackable>
         <Container>
           <Menu.Item as={Link} to="/" header>
             <img src="/assets/onpointEvents.png" alt="logo" />

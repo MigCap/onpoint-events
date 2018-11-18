@@ -14,7 +14,7 @@ const HomePage = ({ history }) => {
             <div className="content">OnPoint Events</div>
           </h1>
           <h2>Get on with your events. Do whatever you want</h2>
-          <br/>
+          <br />
           <div
             onClick={() => history.push('/events')}
             className="ui huge white inverted button">
