@@ -29,5 +29,4 @@ yarn-error.log*
 
 functions/node_modules/**
 
-.firebase
-.firebase/*
+.firebase/hosting.YnVpbGQ.cache
