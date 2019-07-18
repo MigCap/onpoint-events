@@ -10,7 +10,7 @@ const UserDetailedDescription = ({ profile }) => {
   return (
     <Grid.Column width={12}>
       <Segment>
-        <Grid columns={2}>
+        <Grid stackable columns={2}>
           <Grid.Column width={10}>
             <Header>
               <Icon name="smile" />

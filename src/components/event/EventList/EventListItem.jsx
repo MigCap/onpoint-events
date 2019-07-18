@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Segment, Item, Icon, List, Button, Label } from 'semantic-ui-react';
+import {
+  Segment,
+  Item,
+  Icon,
+  List,
+  Button,
+  Label,
+  Placeholder
+} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import EventListAttendee from './EventListAttendee';
 import format from 'date-fns/format';
@@ -7,13 +15,20 @@ import { objectToArray } from '../../../app/tools/util/helpers';
 
 class EventListItem extends Component {
   render() {
-    const { event } = this.props;
+    const { event, loading } = this.props;
     return (
       <Segment.Group>
         <Segment>
           <Item.Group>
             <Item>
-              <Item.Image size="tiny" circular src={event.hostPhotoURL} />
+              {loading ? (
+                <Placeholder>
+                  <Placeholder.Image square />
+                </Placeholder>
+              ) : (
+                <Item.Image size="tiny" circular src={event.hostPhotoURL} />
+              )}
+
               <Item.Content verticalAlign="middle">
                 <Item.Header as={Link} to={`/event/${event.id}`}>
                   {event.title}

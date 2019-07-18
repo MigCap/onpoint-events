@@ -53,8 +53,7 @@ class UserDetailedPage extends Component {
       this.props.history.push('/error');
     }
     let events = await this.props.getUserEvents(this.props.userUid);
-    console.log(events);
-  }
+    }
 
   changeTab = (e, data) => {
     this.props.getUserEvents(this.props.userUid, data.activeIndex);
@@ -80,7 +79,7 @@ class UserDetailedPage extends Component {
 
     if (loading) return <LoadingComponent inverted={true} />;
     return (
-      <Grid>
+      <Grid stackable>
         <UserDetailedHeader profile={profile} />
         <UserDetailedDescription profile={profile} />
         <UserDetailedSidebar

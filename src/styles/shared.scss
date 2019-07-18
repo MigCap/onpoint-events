@@ -1,0 +1,16 @@
+// A map of breakpoints.
+$breakpoints: ( mobile: 768px, laptop: 1240px, desktop-lg: 1800px);
+@mixin breakpoint($breakpoint, $direction) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @if $direction==max {
+        @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+        }
+    }
+    @if $direction==min {
+        @media (min-width: ($breakpoint-value)) {
+            @content;
+        }
+    }
+}
