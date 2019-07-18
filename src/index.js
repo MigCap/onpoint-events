@@ -9,7 +9,7 @@ import ReduxToastr from 'react-redux-toastr';
 
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import 'semantic-ui-css/semantic.min.css';
-import './index.css';
+import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();

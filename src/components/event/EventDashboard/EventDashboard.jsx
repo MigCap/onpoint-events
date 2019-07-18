@@ -30,7 +30,8 @@ class EventDashboard extends Component {
     moreEvents: false,
     loadingInitial: true,
     loadedEvents: [],
-    contextRef: {}
+    contextRef: {},
+    accordionIndex: 1
   };
 
   async componentDidMount() {
@@ -68,31 +69,46 @@ class EventDashboard extends Component {
 
   handleContextRef = contextRef => this.setState({ contextRef });
 
+  handleAccordionClick = (e, titleProps) => {
+    const { index } = titleProps;
+    const { accordionIndex } = this.state;
+    const newIndex = accordionIndex === index ? -1 : index;
+
+    this.setState({ accordionIndex: newIndex });
+  };
+
   render() {
     const { loading, activities } = this.props;
-    const { moreEvents, loadedEvents } = this.state;
+    const { moreEvents, loadedEvents, accordionIndex } = this.state;
+
     if (this.state.loadingInitial) return <LoadingComponent inverted={true} />;
     return (
-      <Grid>
+      <Grid stackable columns={2} reversed="mobile">
         <Grid.Column width={10}>
           <div ref={this.handleContextRef}>
             <EventList
-              loading={loading}
+              loading={this.state.loadingInitial}
               moreEvents={moreEvents}
               events={loadedEvents}
               getNextEvents={this.getNextEvents}
             />
           </div>
         </Grid.Column>
+
         <Grid.Column width={6}>
           <EventActivity
             activities={activities}
             contextRef={this.state.contextRef}
+            accordionIndex={accordionIndex}
+            handleAccordionClick={this.handleAccordionClick}
           />
         </Grid.Column>
-        <Grid.Column width={10}>
-          <Loader active={loading} />
-        </Grid.Column>
+
+        {loading && (
+          <Grid.Column width={10}>
+            <Loader active={loading} />
+          </Grid.Column>
+        )}
       </Grid>
     );
   }
