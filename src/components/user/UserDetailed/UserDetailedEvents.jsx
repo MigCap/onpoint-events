@@ -40,7 +40,7 @@ const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
             <br />
 
             <Tab.Pane loading={eventsLoading}>
-              <Card.Group itemsPerRow={1}>
+              <Card.Group doubling>
                 {events &&
                   events.map(event => (
                     <Card as={Link} to={`/event/${event.id}`} key={event.id}>

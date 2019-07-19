@@ -6,7 +6,8 @@ import {
   List,
   Button,
   Label,
-  Placeholder
+  Placeholder,
+  Responsive
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import EventListAttendee from './EventListAttendee';
@@ -18,37 +19,64 @@ class EventListItem extends Component {
     const { event, loading } = this.props;
     return (
       <Segment.Group>
-        <Segment>
-          <Item.Group>
-            <Item>
-              {loading ? (
-                <Placeholder>
-                  <Placeholder.Image square />
-                </Placeholder>
-              ) : (
-                <Item.Image size="tiny" circular src={event.hostPhotoURL} />
-              )}
+        <Responsive {...Responsive.onlyMobile}>
+          <Segment>
+            <Item.Group unstackable>
+              <Item>
+                <Item.Image size="tiny" rounded src={event.hostPhotoURL} />
 
-              <Item.Content verticalAlign="middle">
-                <Item.Header as={Link} to={`/event/${event.id}`}>
-                  {event.title}
-                </Item.Header>
-                <Item.Description>
-                  Hosted by{' '}
-                  <Link to={`/profile/${event.hostUid}`}>{event.hostedBy}</Link>
-                </Item.Description>
-                {event.cancelled && (
-                  <Label
-                    style={{ top: '-40px' }}
-                    ribbon="right"
-                    color="red"
-                    content="This event has been cancelled"
-                  />
-                )}
-              </Item.Content>
-            </Item>
-          </Item.Group>
-        </Segment>
+                <Item.Content verticalAlign="middle">
+                  <Item.Header as={Link} to={`/event/${event.id}`}>
+                    {event.title}
+                  </Item.Header>
+                  <Item.Description>
+                    Hosted by{' '}
+                    <Link to={`/profile/${event.hostUid}`}>
+                      {event.hostedBy}
+                    </Link>
+                  </Item.Description>
+                  {event.cancelled && (
+                    <Label
+                      style={{ top: '-40px' }}
+                      ribbon="right"
+                      color="red"
+                      content="This event has been cancelled"
+                    />
+                  )}
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Responsive>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Segment>
+            <Item.Group>
+              <Item>
+                <Item.Image size="tiny" circular src={event.hostPhotoURL} />
+
+                <Item.Content verticalAlign="middle">
+                  <Item.Header as={Link} to={`/event/${event.id}`}>
+                    {event.title}
+                  </Item.Header>
+                  <Item.Description>
+                    Hosted by{' '}
+                    <Link to={`/profile/${event.hostUid}`}>
+                      {event.hostedBy}
+                    </Link>
+                  </Item.Description>
+                  {event.cancelled && (
+                    <Label
+                      style={{ top: '-40px' }}
+                      ribbon="right"
+                      color="red"
+                      content="This event has been cancelled"
+                    />
+                  )}
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
+        </Responsive>
         <Segment>
           <span>
             <Icon name="clock" /> {format(event.date.toDate(), 'dddd Do MMMM')}{' '}

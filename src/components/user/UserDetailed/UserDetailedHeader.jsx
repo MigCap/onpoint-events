@@ -12,10 +12,10 @@ const UserDetailedHeader = ({ profile }) => {
   return (
     <Grid.Column width={16}>
       <Segment>
-        <Item.Group>
+        <Item.Group unstackable>
           <Item>
             <Item.Image
-              avatar
+              rounded
               size="small"
               src={profile.photoURL || '/assets/user.png'}
             />
