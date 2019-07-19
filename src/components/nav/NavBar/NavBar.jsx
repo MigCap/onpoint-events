@@ -2,7 +2,14 @@ import React, { Component, Fragment } from 'react';
 import { withRouter, Link, matchPath } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
-import { Responsive, Container, Grid, Menu, Icon } from 'semantic-ui-react';
+import {
+  Responsive,
+  Container,
+  Grid,
+  Menu,
+  Icon,
+  Header
+} from 'semantic-ui-react';
 import NavBarMobile from './NavBarMobile';
 import NavBarDesktop from './NavBarDesktop';
 import { openModal } from '../../modals/modalActions';
@@ -22,8 +29,8 @@ class NavBar extends Component {
 
   componentDidMount() {
     let url = this.props.location.pathname;
-    console.log(url);
-    console.log(this.props);
+    /* console.log(url);
+    console.log(this.props); */
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -49,24 +56,23 @@ class NavBar extends Component {
         <Responsive {...Responsive.onlyMobile}>
           <Container>
             <Grid>
-              <Menu size="large" inverted widths={4}>
-                <Menu.Item
-                  as={Link}
-                  to="/"
-                  header
-                  borderless
-                  style={{ paddingTop: '30px' }}>
-                  <img src="/assets/onpointEvents.png" alt="logo" />
-                  OnPoint Events
-                </Menu.Item>
-                {/* <Menu.Item
-                  as={Link}
-                  to={`/profile/${auth.uid}`}
-                  name="profile"
-                  position="right">
-                  <Icon name="user outline" color="teal" size="large" />
-                </Menu.Item> */}
-              </Menu>
+              <Grid.Row>
+                <Menu size="large" fluid borderless>
+                  <Menu.Item as={Link} to="/events" header>
+                    <Header as="h2" textAlign="center" color="teal">
+                      <Icon name="dot circle outline" color="teal" />
+                      <Header.Content>OnPoint Events</Header.Content>
+                    </Header>
+                  </Menu.Item>
+                  <Menu.Item
+                    as={Link}
+                    to={`/profile/${auth.uid}`}
+                    name="profile"
+                    position="right">
+                    <Icon name="user outline" color="teal" size="large" />
+                  </Menu.Item>
+                </Menu>
+              </Grid.Row>
             </Grid>
           </Container>
           <NavBarMobile

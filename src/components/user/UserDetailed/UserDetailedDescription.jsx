@@ -1,5 +1,13 @@
 import React from 'react';
-import { Grid, Header, Icon, Item, List, Segment } from 'semantic-ui-react';
+import {
+  Grid,
+  Header,
+  Icon,
+  Item,
+  List,
+  Segment,
+  Container
+} from 'semantic-ui-react';
 import format from 'date-fns/format';
 
 const UserDetailedDescription = ({ profile }) => {
@@ -12,37 +20,40 @@ const UserDetailedDescription = ({ profile }) => {
       <Segment>
         <Grid stackable columns={2}>
           <Grid.Column width={10}>
-            <Header>
-              <Icon name="smile" />
-              About {profile.displayName}
-            </Header>
-            <p>
-              I am a <strong>{profile.occupation || '-to be named-'}</strong>
-            </p>
-            <p>
-              Originally from{' '}
-              <strong>{profile.origin || '-to be named-'}</strong>
-            </p>
-            <p>
-              Member Since: <strong>{createdAt}</strong>
-            </p>
-            <p>{profile.about}</p>
+            <Header
+              as="h4"
+              icon="user"
+              content={`About ${profile.displayName}`}
+            />
+
+            <Container>
+              <p>
+                I am a <strong>{profile.occupation || '-to be named-'}</strong>
+              </p>
+              <p>
+                Originally from{' '}
+                <strong>{profile.origin || '-to be named-'}</strong>
+              </p>
+              <p>
+                Member Since: <strong>{createdAt}</strong>
+              </p>
+              <p>{profile.about}</p>
+            </Container>
           </Grid.Column>
           <Grid.Column width={6}>
-            <Header icon="heart outline" content="Interests" />
-            {profile.interests ? (
-              <List style={{ paddingLeft: '40px' }}>
-                {profile.interests &&
-                  profile.interests.map((interest, index) => (
-                    <Item key={index}>
-                      <Icon name="heart" />
-                      <Item.Content>{interest}</Item.Content>
-                    </Item>
-                  ))}
-              </List>
-            ) : (
-              <p>No interests</p>
-            )}
+            <Header as="h5" icon="heart" content="Interests" />
+            <Container>
+              {profile.interests ? (
+                <List style={{ paddingLeft: '40px' }}>
+                  {profile.interests &&
+                    profile.interests.map((interest, index) => (
+                      <Item key={index} content={interest} />
+                    ))}
+                </List>
+              ) : (
+                <p>No interests</p>
+              )}
+            </Container>
           </Grid.Column>
         </Grid>
       </Segment>

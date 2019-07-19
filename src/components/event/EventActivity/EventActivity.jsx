@@ -24,8 +24,8 @@ const EventActivity = ({
             active={accordionIndex === 0}
             index={0}
             onClick={handleAccordionClick}>
-            <Header as="h1" attached="top" color="teal">
-              <Icon name="dropdown" color="teal" />
+            <Header as="h3" attached="top">
+              <Icon name="dropdown" />
               Recent Activity
             </Header>
           </Accordion.Title>

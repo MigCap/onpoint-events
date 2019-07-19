@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header, Image, Segment } from 'semantic-ui-react';
+import { Grid, Header, Image, Segment, Placeholder } from 'semantic-ui-react';
 import LazyLoad from 'react-lazyload';
 
 const UserDetailedPhotos = ({ photos }) => {
@@ -14,8 +14,8 @@ const UserDetailedPhotos = ({ photos }) => {
               <LazyLoad
                 key={photo.id}
                 height={150}
-                placeholder={<Image src="/assets/user.png" />}>
-                <Image src={photo.url} />
+                placeholder={<Placeholder.Image />}>
+                <Image src={photo.url} rounded />
               </LazyLoad>
             ))}
         </Image.Group>

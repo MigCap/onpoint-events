@@ -68,9 +68,9 @@ body {
 
 .ui.main.container,
 .main.segment {
-    margin: 2em 0 5em 0;
+    margin: 0 0 5em 0;
     @include breakpoint(mobile, max) {
-        margin: 2em 0 5em 0;
+        margin: 0 0 5em 0;
     }
     @include breakpoint(mobile, min) {
         margin-top: 7em;
