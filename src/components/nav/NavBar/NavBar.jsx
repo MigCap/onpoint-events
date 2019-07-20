@@ -2,15 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { withRouter, Link, matchPath } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
-import {
-  Responsive,
-  Container,
-  Grid,
-  Menu,
-  Icon,
-  Header
-} from 'semantic-ui-react';
+import { Responsive, Container, Grid } from 'semantic-ui-react';
 import NavBarMobile from './NavBarMobile';
+import TopBarMobile from './TopBarMobile';
 import NavBarDesktop from './NavBarDesktop';
 import { openModal } from '../../modals/modalActions';
 
@@ -29,8 +23,6 @@ class NavBar extends Component {
 
   componentDidMount() {
     let url = this.props.location.pathname;
-    /* console.log(url);
-    console.log(this.props); */
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -57,21 +49,13 @@ class NavBar extends Component {
           <Container>
             <Grid>
               <Grid.Row>
-                <Menu size="large" fluid borderless>
-                  <Menu.Item as={Link} to="/events" header>
-                    <Header as="h2" textAlign="center" color="teal">
-                      <Icon name="dot circle outline" color="teal" />
-                      <Header.Content>OnPoint Events</Header.Content>
-                    </Header>
-                  </Menu.Item>
-                  <Menu.Item
-                    as={Link}
-                    to={`/profile/${auth.uid}`}
-                    name="profile"
-                    position="right">
-                    <Icon name="user outline" color="teal" size="large" />
-                  </Menu.Item>
-                </Menu>
+                <TopBarMobile
+                  auth={auth}
+                  profile={profile}
+                  signIn={this.handleSignIn}
+                  signOut={this.handleSignOut}
+                  authenticated={authenticated}
+                />
               </Grid.Row>
             </Grid>
           </Container>
