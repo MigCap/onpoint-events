@@ -15,7 +15,7 @@ const NavBarMobile = ({
   handleItemClick
 }) => {
   return (
-    <Menu fixed="bottom" icon compact borderless size="huge" widths={6}>
+    <Menu fixed="bottom" fluid icon compact borderless size="huge" widths={6}>
       <Menu.Item
         as={NavLink}
         to="/events"
@@ -44,7 +44,7 @@ const NavBarMobile = ({
             name="people"
             active={activeItem === 'people'}
             onClick={handleItemClick}>
-            <Icon name="users" color="teal" size="large" />
+            <Icon name="address book outline" color="teal" size="large" />
           </Menu.Item>
         </Fragment>
       )}

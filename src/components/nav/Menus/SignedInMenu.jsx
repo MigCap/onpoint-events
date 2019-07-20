@@ -14,11 +14,11 @@ const SignedInMenu = ({
     return (
       <Menu.Item
         as={Link}
-        to={`/profile/${auth.uid}`}
+        to={`/settings/about`}
         name="profile"
         active={activeItem === 'profile'}
         onClick={handleItemClick}>
-        <Icon name="user circle outline" color="teal" size="large" />
+        <Icon name="setting" color="teal" size="large" />
       </Menu.Item>
     );
   } else if (!navBarMobile) {
