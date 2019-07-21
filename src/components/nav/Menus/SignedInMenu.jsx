@@ -10,18 +10,7 @@ const SignedInMenu = ({
   activeItem,
   handleItemClick
 }) => {
-  if (navBarMobile) {
-    return (
-      <Menu.Item
-        as={Link}
-        to={`/settings/about`}
-        name="profile"
-        active={activeItem === 'profile'}
-        onClick={handleItemClick}>
-        <Icon name="setting" color="teal" size="large" />
-      </Menu.Item>
-    );
-  } else if (!navBarMobile) {
+  if (!navBarMobile) {
     return (
       <Menu.Item position="right">
         <Image

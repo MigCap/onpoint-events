@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Responsive } from 'semantic-ui-react';
 import { toastr } from 'react-redux-toastr';
 import { connect } from 'react-redux';
 import { withFirestore, firebaseConnect, isEmpty } from 'react-redux-firebase';
@@ -92,10 +92,11 @@ class EventDetailedPage extends Component {
 
     return (
       <Grid stackable>
-        <Grid.Column width={10}>
+        <Grid.Column mobile={16} tablet={10} computer={10}>
           <EventDetailedHeader
             loading={loading}
             event={event}
+            attendees={attendees}
             isHost={isHost}
             isGoing={isGoing}
             goingToEvent={goingToEvent}
@@ -116,9 +117,11 @@ class EventDetailedPage extends Component {
             />
           )}
         </Grid.Column>
-        <Grid.Column width={6}>
-          <EventDetailedSidebar attendees={attendees} />
-        </Grid.Column>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Grid.Column mobile={16} tablet={6} computer={6}>
+            <EventDetailedSidebar attendees={attendees} />
+          </Grid.Column>
+        </Responsive>
       </Grid>
     );
   }

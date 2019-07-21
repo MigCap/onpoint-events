@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Icon, Header, Dropdown } from 'semantic-ui-react';
 
-const TopBarMobile = ({ profile, auth, signOut, authenticated }) => {
+const TopBarMobile = ({
+  profile,
+  auth,
+  authenticated,
+  signIn,
+  signOut,
+  register
+}) => {
   return (
     <Menu size="large" fluid borderless>
       <Menu.Item as={Link} to="/events" header>
@@ -26,11 +33,7 @@ const TopBarMobile = ({ profile, auth, signOut, authenticated }) => {
 
       {authenticated ? (
         <Menu.Item position="right">
-          {/* <Icon name="user outline" color="teal" size="large" /> */}
-          <Dropdown
-            pointing="top right"
-            icon="user outline"
-            className="dropdown-icon">
+          <Dropdown pointing="top right" icon="bars" className="dropdown-icon">
             <Dropdown.Menu>
               <Dropdown.Item
                 as={Link}
@@ -61,12 +64,13 @@ const TopBarMobile = ({ profile, auth, signOut, authenticated }) => {
           </Dropdown>
         </Menu.Item>
       ) : (
-        <Menu.Item
-          as={Link}
-          to={`/profile/${auth.uid}`}
-          name="profile"
-          position="right">
-          <Icon name="user outline" color="teal" size="large" />
+        <Menu.Item position="right">
+          <Dropdown pointing="top right" icon="bars" className="dropdown-icon">
+            <Dropdown.Menu>
+              <Dropdown.Item text="Sign In" icon="sign-in" onClick={signIn} />
+              <Dropdown.Item text="Register" icon="edit" onClick={register} />
+            </Dropdown.Menu>
+          </Dropdown>
         </Menu.Item>
       )}
     </Menu>

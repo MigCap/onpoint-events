@@ -30,50 +30,59 @@ class EventDetailedInfo extends Component {
       <Segment.Group>
         <Segment attached="top">
           <Grid>
-            <Grid.Column width={1}>
-              <Icon size="large" color="teal" name="info" />
-            </Grid.Column>
-            <Grid.Column width={15}>
-              <p>{event.description}</p>
-            </Grid.Column>
+            <Grid.Row>
+              <Grid.Column width={2}>
+                <Icon size="large" color="teal" name="info" />
+              </Grid.Column>
+              <Grid.Column width={14}>
+                <p>{event.description}</p>
+              </Grid.Column>
+            </Grid.Row>
           </Grid>
         </Segment>
         <Segment attached>
           <Grid verticalAlign="middle">
-            <Grid.Column width={1}>
-              <Icon name="calendar" size="large" color="teal" />
-            </Grid.Column>
-            <Grid.Column width={15}>
-              <span>
-                {format(eventDate, 'dddd Do MMM')} at{' '}
-                {format(eventDate, 'h:mm A')}
-              </span>
-            </Grid.Column>
+            <Grid.Row>
+              <Grid.Column width={2}>
+                <Icon name="calendar" size="large" color="teal" />
+              </Grid.Column>
+              <Grid.Column width={14}>
+                <span>
+                  {format(eventDate, 'dddd Do MMM')} at{' '}
+                  {format(eventDate, 'h:mm A')}
+                </span>
+              </Grid.Column>
+            </Grid.Row>
           </Grid>
         </Segment>
         <Segment attached>
           <Grid verticalAlign="middle">
-            <Grid.Column width={1}>
-              <Icon name="marker" size="large" color="teal" />
-            </Grid.Column>
-            <Grid.Column width={11}>
-              <span>{event.venue}</span>
-            </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Row>
+              <Grid.Column width={2}>
+                <Icon name="map marker alternate" size="large" color="teal" />
+              </Grid.Column>
+              <Grid.Column width={14}>
+                <span>{event.venue}</span>
+              </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Column width={16}>
               {authenticated && (
                 <Button
+                  fluid
                   onClick={this.showMapToggle}
-                  color="teal"
-                  size="tiny"
+                  color="blue"
+                  size="small"
                   content={this.state.showMap ? 'Hide Map' : 'Show Map'}
                 />
               )}
 
               {!authenticated && (
                 <Button
+                  fluid
                   onClick={() => openModal('UnauthModal')}
-                  color="teal"
-                  size="tiny"
+                  color="blue"
+                  size="small"
                   content="Show Map"
                 />
               )}

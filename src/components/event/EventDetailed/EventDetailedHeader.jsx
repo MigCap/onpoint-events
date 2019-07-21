@@ -1,5 +1,13 @@
-import React from 'react';
-import { Segment, Image, Item, Header, Button, Label } from 'semantic-ui-react';
+import React, { Fragment } from 'react';
+import {
+  Segment,
+  Image,
+  Item,
+  Header,
+  Button,
+  Label,
+  Icon
+} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
 
@@ -21,6 +29,7 @@ const eventImageTextStyle = {
 
 const EventDetailedHeader = ({
   event,
+  attendees,
   isHost,
   isGoing,
   goingToEvent,
@@ -63,7 +72,7 @@ const EventDetailedHeader = ({
 
       <Segment attached="bottom">
         {!isHost && (
-          <div>
+          <Fragment>
             {isGoing && !event.cancelled && (
               <Button onClick={() => cancelGoingToEvent(event)}>
                 Cancel My Place
@@ -71,16 +80,22 @@ const EventDetailedHeader = ({
             )}
 
             {!isGoing && authenticated && !event.cancelled && (
-              <Button
-                loading={loading}
-                onClick={() => goingToEvent(event)}
-                color="teal">
-                JOIN THIS EVENT
-              </Button>
+              <Fragment>
+                <Button as="div" labelPosition="right" fluid>
+                  <Button color="teal" fluid>
+                    <Icon name="hand point up" />
+                    JOIN THIS EVENT
+                  </Button>
+                  <Label as="a" basic color="teal" pointing="left">
+                    {attendees.length} going
+                  </Label>
+                </Button>
+              </Fragment>
             )}
 
             {!authenticated && !event.cancelled && (
               <Button
+                fluid
                 loading={loading}
                 onClick={() => openModal('UnauthModal')}
                 color="teal">
@@ -91,10 +106,10 @@ const EventDetailedHeader = ({
             {event.cancelled && !isHost && (
               <Label size="large" color="red" content="Event Cancelled" />
             )}
-          </div>
+          </Fragment>
         )}
         {isHost && (
-          <Button as={Link} to={`/manage/${event.id}`} color="orange">
+          <Button as={Link} to={`/manage/${event.id}`} color="orange" fluid>
             Manage Event
           </Button>
         )}
