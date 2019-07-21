@@ -67,8 +67,8 @@ const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
       </Grid.Column>
 
       <Grid.Column width={12}>
-        <Segment attached>
-          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Segment attached>
             <Header icon="calendar" content="Events" />
             <Tab
               onTabChange={(e, data) => changeTab(e, data)}
@@ -100,8 +100,8 @@ const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
                   ))}
               </Card.Group>
             </Tab.Pane>
-          </Responsive>
-        </Segment>
+          </Segment>
+        </Responsive>
       </Grid.Column>
     </Fragment>
   );

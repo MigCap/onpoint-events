@@ -192,29 +192,40 @@ class EventForm extends Component {
                 showTimeSelect
                 placeholder="Date and time of event"
               />
-              <Button
-                loading={loading}
-                disabled={invalid || submitting || pristine}
-                positive
-                type="submit">
-                Submit
-              </Button>
-              <Button
-                disabled={loading}
-                onClick={this.props.history.goBack}
-                type="button">
-                Cancel
-              </Button>
-              {event.id && (
-                <Button
-                  onClick={() => cancelToggle(!event.cancelled, event.id)}
-                  type="button"
-                  color={event.cancelled ? 'green' : 'red'}
-                  content={
-                    event.cancelled ? 'Reactivate Event' : 'Cancel Event'
-                  }
-                />
-              )}
+              <Grid.Column>
+                <Grid.Row>
+                  <Button.Group fluid>
+                    <Button
+                      type="button"
+                      disabled={loading}
+                      onClick={this.props.history.goBack}>
+                      Cancel
+                    </Button>
+                    <Button.Or />
+                    <Button
+                      type="submit"
+                      disabled={invalid || submitting || pristine}
+                      loading={loading}
+                      positive>
+                      Submit
+                    </Button>
+                  </Button.Group>
+                </Grid.Row>
+                <br />
+                <Grid.Row>
+                  {event.id && (
+                    <Button
+                      fluid
+                      onClick={() => cancelToggle(!event.cancelled, event.id)}
+                      type="button"
+                      color={event.cancelled ? 'green' : 'red'}
+                      content={
+                        event.cancelled ? 'Reactivate Event' : 'Cancel Event'
+                      }
+                    />
+                  )}
+                </Grid.Row>
+              </Grid.Column>
             </Form>
           </Segment>
         </Grid.Column>

@@ -54,6 +54,7 @@ class NavBar extends Component {
                   profile={profile}
                   signIn={this.handleSignIn}
                   signOut={this.handleSignOut}
+                  register={this.handleRegister}
                   authenticated={authenticated}
                 />
               </Grid.Row>

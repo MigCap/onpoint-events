@@ -42,7 +42,7 @@ const AccountPage = ({
           <p>Use this form to update your account settings</p>
           <Form onSubmit={handleSubmit(updatePassword)}>
             <Field
-              width={8}
+              width={16}
               name="newPassword1"
               type="password"
               pointing="left"
@@ -52,7 +52,7 @@ const AccountPage = ({
               placeholder="New Password"
             />
             <Field
-              width={8}
+              width={16}
               name="newPassword2"
               type="password"
               inline={true}
@@ -71,6 +71,7 @@ const AccountPage = ({
               disabled={invalid || submitting}
               size="large"
               positive
+              fluid
               content="Update Password"
             />
           </Form>

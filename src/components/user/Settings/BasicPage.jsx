@@ -15,7 +15,7 @@ class BasicPage extends Component {
         <Header dividing size="large" content="Basics" />
         <Form onSubmit={handleSubmit(updateProfile)}>
           <Field
-            width={8}
+            width={16}
             name="displayName"
             type="text"
             component={TextInput}
@@ -47,7 +47,7 @@ class BasicPage extends Component {
             />
           </Form.Group>
           <Field
-            width={8}
+            width={16}
             name="dateOfBirth"
             component={DateInput}
             dateFormat="YYYY-MM-DD"
@@ -58,15 +58,16 @@ class BasicPage extends Component {
             placeholder="Date of Birth"
           />
           <Field
+            width={16}
             name="city"
             placeholder="Home Town"
             options={{ types: ['(cities)'] }}
             label="Home Town"
             component={PlaceInput}
-            width={8}
           />
           <Divider />
           <Button
+            fluid
             disabled={pristine || submitting}
             size="large"
             positive

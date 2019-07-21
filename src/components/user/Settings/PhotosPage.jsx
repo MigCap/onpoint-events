@@ -121,7 +121,7 @@ class PhotosPage extends Component {
         <Header dividing size="large" content="Your Photos" />
         <Grid>
           <Grid.Row />
-          <Grid.Column width={4}>
+          <Grid.Column mobile={12} tablet={4} computer={4}>
             <Header
               color="teal"
               sub
@@ -141,7 +141,7 @@ class PhotosPage extends Component {
             </Dropzone>
           </Grid.Column>
           <Grid.Column width={1} />
-          <Grid.Column width={4}>
+          <Grid.Column mobile={12} tablet={4} computer={4}>
             <Header
               sub
               color="teal"
@@ -165,7 +165,7 @@ class PhotosPage extends Component {
             )}
           </Grid.Column>
           <Grid.Column width={1} />
-          <Grid.Column width={5}>
+          <Grid.Column mobile={12} tablet={4} computer={5}>
             <Header
               sub
               color="teal"

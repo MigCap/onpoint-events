@@ -55,7 +55,7 @@ const SettingsDashboard = ({
           />
         </Switch>
       </Grid.Column>
-      <Grid.Column mobile={12} tablet={12} computer={4}>
+      <Grid.Column mobile={12} tablet={4} computer={4}>
         <SettingsNav />
       </Grid.Column>
     </Grid>

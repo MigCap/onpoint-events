@@ -58,14 +58,14 @@ const AboutPage = ({ pristine, submitting, handleSubmit, updateProfile }) => {
           placeholder="Select your interests"
         />
         <Field
-          width={8}
+          width={16}
           name="occupation"
           type="text"
           component={TextInput}
           placeholder="Occupation"
         />
         <Field
-          width={8}
+          width={16}
           name="origin"
           options={{ types: ['(regions)'] }}
           component={PlaceInput}
@@ -76,6 +76,7 @@ const AboutPage = ({ pristine, submitting, handleSubmit, updateProfile }) => {
           disabled={pristine || submitting}
           size="large"
           positive
+          fluid
           content="Update Profile"
         />
       </Form>

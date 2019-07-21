@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Grid, Header, Item, Segment } from 'semantic-ui-react';
 import differenceInYears from 'date-fns/difference_in_years';
 
@@ -20,13 +20,17 @@ const UserDetailedHeader = ({ profile }) => {
               src={profile.photoURL || '/assets/user.png'}
             />
             <Item.Content verticalAlign="middle">
-              <Header as="h1">{profile.displayName}</Header>
-              <br />
-              <Header as="h3">{profile.occupation}</Header>
-              <br />
-              <Header as="h3">
-                {age}, Lives in {profile.city || 'unknown city'}
-              </Header>
+              <Header as="h2">{profile.displayName}</Header>
+              {profile.occupation && profile.city && age && (
+                <Fragment>
+                  <br />
+                  <Header as="h3">{profile.occupation}</Header>
+                  <br />
+                  <Header as="h3">
+                    {age}, Lives in {profile.city || 'unknown city'}
+                  </Header>
+                </Fragment>
+              )}
             </Item.Content>
           </Item>
         </Item.Group>

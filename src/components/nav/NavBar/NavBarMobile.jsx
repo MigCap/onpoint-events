@@ -1,21 +1,10 @@
 import React, { Fragment } from 'react';
 import { Icon, Menu } from 'semantic-ui-react';
 import { Link, NavLink } from 'react-router-dom';
-import SignedOutMenu from '../Menus/SignedOutMenu';
-import SignedInMenu from '../Menus/SignedInMenu';
 
-const NavBarMobile = ({
-  auth,
-  profile,
-  signIn,
-  signOut,
-  register,
-  authenticated,
-  activeItem,
-  handleItemClick
-}) => {
+const NavBarMobile = ({ authenticated, activeItem, handleItemClick }) => {
   return (
-    <Menu fixed="bottom" fluid icon compact borderless size="huge" widths={6}>
+    <Menu fixed="bottom" fluid icon borderless size="huge" widths={6}>
       <Menu.Item
         as={NavLink}
         to="/events"
@@ -26,18 +15,18 @@ const NavBarMobile = ({
       </Menu.Item>
 
       {authenticated && (
+        <Menu.Item
+          as={NavLink}
+          to="/createEvent"
+          name="createEvent"
+          active={activeItem === 'createEvent'}
+          onClick={handleItemClick}>
+          <Icon name="add" corner="bottom right" color="teal" size="large" />
+        </Menu.Item>
+      )}
+
+      {authenticated && (
         <Fragment>
-          <Menu.Item
-            as={Link}
-            to="/createEvent"
-            name="createEvent"
-            active={activeItem === 'createEvent'}
-            onClick={handleItemClick}>
-            <Icon.Group size="large">
-              <Icon name="calendar alternate outline" color="teal" />
-              <Icon name="add" corner="bottom right" color="orange" />
-            </Icon.Group>
-          </Menu.Item>
           <Menu.Item
             as={NavLink}
             to="/people"
@@ -46,20 +35,15 @@ const NavBarMobile = ({
             onClick={handleItemClick}>
             <Icon name="address book outline" color="teal" size="large" />
           </Menu.Item>
+          {/* <Menu.Item
+            as={Link}
+            to={`/settings/about`}
+            name="profile"
+            active={activeItem === 'profile'}
+            onClick={handleItemClick}>
+            <Icon name="setting" color="teal" size="large" />
+          </Menu.Item> */}
         </Fragment>
-      )}
-
-      {authenticated ? (
-        <SignedInMenu
-          auth={auth}
-          profile={profile}
-          signOut={signOut}
-          activeItem={activeItem}
-          handleItemClick={handleItemClick}
-          navBarMobile={true}
-        />
-      ) : (
-        <SignedOutMenu signIn={signIn} register={register} />
       )}
     </Menu>
   );
