@@ -1,10 +1,39 @@
+/* navbar styles */
+
+
+/* .ui.fixed.menu {
+  background-image: linear-gradient(to right, #304352, #d7d2cc) !important;
+    background-image: linear-gradient(to right, hsla(207, 23%, 9%, 0.9), hsla(30, 1%, 37%, 0.9)) !important;
+    @include breakpoint(mobile, max) {
+        border-radius: 30px 30px 0px 0px !important;
+    }
+} */
+
+
 /*top navbar mobile style*/
+
+.menu.ui.mini {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 
 .dropdown-icon {
     i {
         color: #00b5ad;
+        font-size: 2.5em;
+    }
+    span {
         font-size: 1.5em;
     }
+}
+
+.ui.menu .ui.dropdown .menu>.item .icon:not(.dropdown) {
+    font-size: 1.5em !important;
+}
+
+.ui.dropdown .menu {
+    padding: 10px 5px;
 }
 
 

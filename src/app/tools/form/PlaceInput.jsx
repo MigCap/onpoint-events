@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Label } from 'semantic-ui-react';
-// import Script from 'react-load-script';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 const styles = {
@@ -27,10 +26,6 @@ class PlaceInput extends Component {
     } = this.props;
     return (
       <Form.Field error={touched && !!error} width={width}>
-        {/*<Script
-          url="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBE37NT1YgBbMCvFKbOheaO3tNWQLF-MKM&libraries=places"
-          onLoad={this.handleScriptLoaded}
-        />*/}
         {this.state.scriptLoaded && (
           <PlacesAutocomplete
             inputProps={{ ...input, placeholder }}

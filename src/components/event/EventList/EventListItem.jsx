@@ -6,8 +6,8 @@ import {
   List,
   Button,
   Label,
-  Placeholder,
-  Responsive
+  Responsive,
+  Grid
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import EventListAttendee from './EventListAttendee';
@@ -80,11 +80,15 @@ class EventListItem extends Component {
         <Segment>
           <span>
             <Icon name="clock" /> {format(event.date.toDate(), 'dddd Do MMMM')}{' '}
-            at {format(event.date.toDate(), 'HH:mm')} |<Icon name="marker" />{' '}
-            {event.venue}
+            at {format(event.date.toDate(), 'HH:mm')} |
+          </span>
+          <br />
+          <span>
+            <Icon name="map marker alternate" /> {event.venue}
           </span>
         </Segment>
         <Segment secondary>
+          <p>Attendees</p>
           <List horizontal>
             {event.attendees &&
               objectToArray(event.attendees).map(attendee => (
@@ -92,17 +96,21 @@ class EventListItem extends Component {
               ))}
           </List>
         </Segment>
-        <Segment clearing>
-          <span>{event.description}</span>
-          <div style={{ marginTop: '20px' }}>
-            <Button
-              as={Link}
-              to={`/event/${event.id}`}
-              color="teal"
-              floated="right"
-              content="View"
-            />
-          </div>
+        <Segment>
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={10}>{event.description}</Grid.Column>
+              <Grid.Column width={6}>
+                <Button
+                  as={Link}
+                  to={`/event/${event.id}`}
+                  color="teal"
+                  floated="right"
+                  content="View"
+                />
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Segment>
       </Segment.Group>
     );

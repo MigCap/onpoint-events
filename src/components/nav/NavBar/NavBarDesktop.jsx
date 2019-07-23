@@ -5,7 +5,6 @@ import SignedOutMenu from '../Menus/SignedOutMenu';
 import SignedInMenu from '../Menus/SignedInMenu';
 
 const NavBarDesktop = ({
-  children,
   auth,
   profile,
   signIn,
