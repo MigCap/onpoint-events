@@ -29,6 +29,10 @@ const mapState = state => ({
 });
 
 const PeopleDashboard = ({ followings, followers }) => {
+  let loading =
+    followings &&
+    followings === undefined &&
+    (followers && followers === undefined);
   return (
     <Fragment>
       <Responsive {...Responsive.onlyMobile}>
@@ -39,7 +43,11 @@ const PeopleDashboard = ({ followings, followers }) => {
               <Card.Group itemsPerRow={2}>
                 {followers &&
                   followers.map(follower => (
-                    <PersonCard key={follower.id} user={follower} />
+                    <PersonCard
+                      key={follower.id}
+                      user={follower}
+                      loading={loading}
+                    />
                   ))}
               </Card.Group>
             </Segment>
@@ -48,7 +56,11 @@ const PeopleDashboard = ({ followings, followers }) => {
               <Card.Group itemsPerRow={2}>
                 {followers &&
                   followings.map(following => (
-                    <PersonCard key={following.id} user={following} />
+                    <PersonCard
+                      key={following.id}
+                      user={following}
+                      loading={loading}
+                    />
                   ))}
               </Card.Group>
             </Segment>
@@ -64,7 +76,11 @@ const PeopleDashboard = ({ followings, followers }) => {
               <Card.Group itemsPerRow={8}>
                 {followers &&
                   followers.map(follower => (
-                    <PersonCard key={follower.id} user={follower} />
+                    <PersonCard
+                      key={follower.id}
+                      user={follower}
+                      loading={loading}
+                    />
                   ))}
               </Card.Group>
             </Segment>
@@ -73,7 +89,11 @@ const PeopleDashboard = ({ followings, followers }) => {
               <Card.Group itemsPerRow={8}>
                 {followers &&
                   followings.map(following => (
-                    <PersonCard key={following.id} user={following} />
+                    <PersonCard
+                      key={following.id}
+                      user={following}
+                      loading={loading}
+                    />
                   ))}
               </Card.Group>
             </Segment>

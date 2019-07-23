@@ -1,15 +1,8 @@
 import React from 'react';
-import { Menu, Image, Icon, Dropdown } from 'semantic-ui-react';
+import { Menu, Image, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const SignedInMenu = ({
-  signOut,
-  profile,
-  auth,
-  navBarMobile,
-  activeItem,
-  handleItemClick
-}) => {
+const SignedInMenu = ({ signOut, profile, auth, navBarMobile }) => {
   if (!navBarMobile) {
     return (
       <Menu.Item position="right">

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { withFirestore } from 'react-redux-firebase';
-// import Script from 'react-load-script';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { Segment, Form, Button, Grid, Header } from 'semantic-ui-react';
 import {
@@ -132,12 +131,11 @@ class EventForm extends Component {
     } = this.props;
     return (
       <Grid>
-        {/*<Script
-          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE37NT1YgBbMCvFKbOheaO3tNWQLF-MKM&libraries=places"
-          onLoad={this.handleScriptLoaded}
-        />*/}
         <Grid.Column width={10} mobile={16}>
           <Segment>
+            <Header as="h2" disabled>
+              Add your Event
+            </Header>
             <Header sub color="teal" content="Event Details" />
             <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
               <Field

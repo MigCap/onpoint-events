@@ -57,7 +57,7 @@ class App extends Component {
         <Route
           path="/(.+)"
           render={() => (
-            <div>
+            <Fragment>
               <AsyncNavBar />
               <Container className="main">
                 <Switch>
@@ -87,7 +87,7 @@ class App extends Component {
                   <Route component={AsyncNotFound} />
                 </Switch>
               </Container>
-            </div>
+            </Fragment>
           )}
         />
       </Fragment>
