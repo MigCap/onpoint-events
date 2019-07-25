@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Icon, Header, Dropdown } from 'semantic-ui-react';
+import { Menu, Header, Dropdown } from 'semantic-ui-react';
 
 const TopBarMobile = ({
   profile,

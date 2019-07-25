@@ -1,45 +1,19 @@
 import React from 'react';
-import {
-  Header,
-  Segment,
-  Feed,
-  Sticky,
-  Responsive,
-  Accordion,
-  Icon
-} from 'semantic-ui-react';
+import { Header, Segment, Feed, Sticky, Responsive } from 'semantic-ui-react';
 import EventActivityItem from './EventActivityItem';
 
-const EventActivity = ({
-  activities,
-  contextRef,
-  accordionIndex,
-  handleAccordionClick
-}) => {
+const EventActivity = ({ activities, contextRef }) => {
   return (
     <div style={{ zIndex: '10 !important' }}>
       <Responsive {...Responsive.onlyMobile}>
-        <Accordion>
-          <Accordion.Title
-            active={accordionIndex === 0}
-            index={0}
-            onClick={handleAccordionClick}>
-            <Header as="h3" attached="top">
-              <Icon name="dropdown" />
-              Recent Activity
-            </Header>
-          </Accordion.Title>
-          <Accordion.Content active={accordionIndex === 0}>
-            <Segment attached>
-              <Feed>
-                {activities &&
-                  activities.map(activity => (
-                    <EventActivityItem key={activity.id} activity={activity} />
-                  ))}
-              </Feed>
-            </Segment>
-          </Accordion.Content>
-        </Accordion>
+        <Segment attached>
+          <Feed>
+            {activities &&
+              activities.map(activity => (
+                <EventActivityItem key={activity.id} activity={activity} />
+              ))}
+          </Feed>
+        </Segment>
       </Responsive>
 
       <Responsive minWidth={Responsive.onlyTablet.minWidth}>

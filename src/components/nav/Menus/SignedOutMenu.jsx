@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Menu, Button, Icon } from 'semantic-ui-react';
+import React from 'react';
+import { Menu, Button } from 'semantic-ui-react';
 
 const SignedOutMenu = ({ signIn, register, navBarMobile }) => {
   if (!navBarMobile) {

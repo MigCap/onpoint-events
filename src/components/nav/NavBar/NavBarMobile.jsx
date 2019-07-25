@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Icon, Menu } from 'semantic-ui-react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavBarMobile = ({ authenticated }) => {
   return (
@@ -20,14 +20,6 @@ const NavBarMobile = ({ authenticated }) => {
           <Menu.Item as={NavLink} to="/people" name="people">
             <Icon name="address book outline" color="teal" size="large" />
           </Menu.Item>
-          {/* <Menu.Item
-            as={Link}
-            to={`/settings/about`}
-            name="profile"
-            active={activeItem === 'profile'}
-            onClick={handleItemClick}>
-            <Icon name="setting" color="teal" size="large" />
-          </Menu.Item> */}
         </Fragment>
       )}
     </Menu>

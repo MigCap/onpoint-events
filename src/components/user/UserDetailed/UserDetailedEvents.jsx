@@ -6,8 +6,7 @@ import {
   Image,
   Segment,
   Tab,
-  Responsive,
-  Container
+  Responsive
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import format from 'date-fns/format';

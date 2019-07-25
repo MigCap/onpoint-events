@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Grid,
   Header,
-  Icon,
   Item,
   List,
   Segment,

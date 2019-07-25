@@ -41,7 +41,7 @@ body {
     border-radius: 20px;
     @include breakpoint(mobile,
     max) {
-        padding: 20% 1em;
+        padding: 15% 0.6em;
     }
 }
 
@@ -55,7 +55,7 @@ body {
     font-weight: 800;
     @include breakpoint(mobile,
     max) {
-        font-size: 3em;
+        font-size: 2em;
         font-weight: 900;
     }
 }
@@ -82,14 +82,15 @@ body {
 
 .ui.main.container,
 .main.segment {
-    margin: 0 0 5em 0;
+    min-height: calc(100vh - 50px);
+    padding: 0 0 7em 0 !important;
     @include breakpoint(mobile,
     max) {
-        margin: 0 0 5em 0;
+        padding: 0 0 7em 0 !important;
     }
     @include breakpoint(mobile,
     min) {
-        margin-top: 7em;
+        padding-top: 7em !important;
     }
 }
 
