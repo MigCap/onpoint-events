@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter, Link, matchPath } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withFirebase } from 'react-redux-firebase';
 import { Responsive, Container, Grid } from 'semantic-ui-react';

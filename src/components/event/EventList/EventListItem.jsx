@@ -16,7 +16,7 @@ import { objectToArray } from '../../../app/tools/util/helpers';
 
 class EventListItem extends Component {
   render() {
-    const { event, loading } = this.props;
+    const { event } = this.props;
     return (
       <Segment.Group>
         <Responsive {...Responsive.onlyMobile}>
