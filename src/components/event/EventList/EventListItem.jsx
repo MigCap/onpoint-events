@@ -77,7 +77,7 @@ class EventListItem extends Component {
             </Item.Group>
           </Segment>
         </Responsive>
-        <Segment>
+        <Segment secondary>
           <span>
             <Icon name="clock" /> {format(event.date.toDate(), 'dddd Do MMMM')}{' '}
             at {format(event.date.toDate(), 'HH:mm')} |
@@ -87,8 +87,8 @@ class EventListItem extends Component {
             <Icon name="map marker alternate" /> {event.venue}
           </span>
         </Segment>
-        <Segment secondary>
-          <p>Attendees</p>
+        <Segment>
+          <span style={{ paddingRight: '5px' }}>Attendees: </span>
           <List horizontal>
             {event.attendees &&
               objectToArray(event.attendees).map(attendee => (
