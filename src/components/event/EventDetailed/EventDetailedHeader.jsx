@@ -74,15 +74,24 @@ const EventDetailedHeader = ({
         {!isHost && (
           <Fragment>
             {isGoing && !event.cancelled && (
-              <Button onClick={() => cancelGoingToEvent(event)}>
+              <Button fluid onClick={() => cancelGoingToEvent(event)}>
                 Cancel My Place
               </Button>
             )}
 
             {!isGoing && authenticated && !event.cancelled && (
               <Fragment>
-                <Button as="div" labelPosition="right" fluid>
-                  <Button color="teal" fluid>
+                <Button
+                  as="div"
+                  labelPosition="right"
+                  fluid
+                  style={{ cursor: 'pointer' }}>
+                  <Button
+                    color="teal"
+                    fluid
+                    loading={loading}
+                    onClick={() => goingToEvent(event)}
+                    style={{ cursor: 'pointer' }}>
                     <Icon name="hand point up" />
                     JOIN THIS EVENT
                   </Button>
@@ -104,7 +113,7 @@ const EventDetailedHeader = ({
             )}
 
             {event.cancelled && !isHost && (
-              <Label size="large" color="red" content="Event Cancelled" />
+              <Label size="large" color="red" content="Event Cancelled" tag />
             )}
           </Fragment>
         )}

@@ -4,7 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 const NavBarMobile = ({ authenticated }) => {
   return (
-    <Menu fixed="bottom" fluid icon borderless size="huge" widths={6}>
+    <Menu
+      fixed="bottom"
+      fluid
+      icon
+      borderless
+      size="huge"
+      widths={6}
+      className="bottom-navBar">
       <Menu.Item as={NavLink} to="/events" name="events">
         <Icon name="calendar alternate outline" color="teal" size="large" />
       </Menu.Item>

@@ -6,7 +6,7 @@ const EventActivity = ({ activities, contextRef }) => {
   return (
     <div style={{ zIndex: '10 !important' }}>
       <Responsive {...Responsive.onlyMobile}>
-        <Segment attached>
+        <Segment attached style={{ minWidth: '90vw' }}>
           <Feed>
             {activities &&
               activities.map(activity => (

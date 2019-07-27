@@ -131,7 +131,7 @@ class EventForm extends Component {
     } = this.props;
     return (
       <Grid>
-        <Grid.Column width={10} mobile={16}>
+        <Grid.Column mobile={16} tablet={16} computer={14} widescreen={14}>
           <Segment>
             <Header as="h2" disabled>
               Add your Event

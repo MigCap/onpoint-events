@@ -5,6 +5,9 @@
 
 body {
     background-color: rgb(234, 234, 234) !important;
+    // max-width: 100vw !important;
+    // max-height: 100vh !important;
+    // overflow: hidden !important;
 }
 
 
@@ -82,15 +85,30 @@ body {
 
 .ui.main.container,
 .main.segment {
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 3.5em);
     padding: 0 0 7em 0 !important;
+    overflow: hidden;
     @include breakpoint(mobile,
     max) {
-        padding: 0 0 7em 0 !important;
+        padding: 1.5em 0 4em 0 !important;
     }
     @include breakpoint(mobile,
     min) {
-        padding-top: 7em !important;
+        padding-top: 4em !important;
+    }
+}
+
+.events-list {
+    min-height: calc(100vh - 3.5em);
+    padding: 0 0 7em 0 !important;
+    overflow: hidden;
+    @include breakpoint(mobile,
+    max) {
+        padding: 1.5em 0 4em 0 !important;
+    }
+    @include breakpoint(mobile,
+    min) {
+        padding-top: 4em !important;
     }
 }
 

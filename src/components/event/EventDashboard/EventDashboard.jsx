@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
   Grid,
   Loader,
@@ -48,15 +48,24 @@ class EventDashboard extends Component {
     if (next && next.docs && next.docs.length > 1) {
       this.setState({
         moreEvents: true,
-        loadingInitial: false
+        loadingInitial: false,
+        loadedEvents: [...this.props.events]
       });
     }
   }
 
   componentWillReceiveProps(nextProps) {
+    const { loadedEvents } = this.state;
+
     if (this.props.events !== nextProps.events) {
+      const loadedEventsIds = new Set(loadedEvents.map(({ id }) => id));
+      const mergedEvents = [
+        ...loadedEvents,
+        ...nextProps.events.filter(({ id }) => !loadedEventsIds.has(id))
+      ];
+
       this.setState({
-        loadedEvents: [...this.state.loadedEvents, ...nextProps.events]
+        loadedEvents: [...mergedEvents]
       });
     }
   }
@@ -65,6 +74,7 @@ class EventDashboard extends Component {
     const { events } = this.props;
     let lastEvent = events && events[events.length - 1];
     let next = await this.props.getEventsForDashboard(lastEvent);
+
     if (next && next.docs && next.docs.length <= 1) {
       this.setState({
         moreEvents: false
@@ -76,7 +86,7 @@ class EventDashboard extends Component {
 
   render() {
     const { loading, activities } = this.props;
-    const { moreEvents, loadedEvents, accordionIndex } = this.state;
+    const { moreEvents, loadedEvents } = this.state;
 
     const panes = [
       {
@@ -91,8 +101,12 @@ class EventDashboard extends Component {
         ),
         render: () => (
           <div ref={this.handleContextRef}>
-            <Grid>
-              <Grid.Column mobile={16} tablet={16}>
+            <Grid style={{ minWidth: '100vw' }}>
+              <Grid.Column
+                mobile={16}
+                tablet={16}
+                computer={16}
+                widescreen={10}>
                 <EventList
                   loading={this.state.loadingInitial}
                   moreEvents={moreEvents}
@@ -109,7 +123,9 @@ class EventDashboard extends Component {
           <Menu.Item key="Events Activity">
             <Icon name="newspaper outline" />
             Events Activity
-            <Label>{activities !== undefined ? activities.length : '?'}</Label>
+            <Label color="teal" size="mini" circular>
+              {activities !== undefined ? activities.length : '?'}
+            </Label>
           </Menu.Item>
         ),
         render: () => (
@@ -117,7 +133,6 @@ class EventDashboard extends Component {
             <EventActivity
               activities={activities}
               contextRef={this.state.contextRef}
-              accordionIndex={accordionIndex}
               handleAccordionClick={this.handleAccordionClick}
             />
           </Tab.Pane>
@@ -129,7 +144,7 @@ class EventDashboard extends Component {
 
     if (this.state.loadingInitial) return <LoadingComponent inverted={true} />;
     return (
-      <Fragment>
+      <div className="events-list">
         <Grid>
           <Responsive {...Responsive.onlyMobile}>
             <Tab
@@ -140,8 +155,8 @@ class EventDashboard extends Component {
         </Grid>
 
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <Grid reversed="tablet">
-            <Grid.Column tablet={16} computer={10} widescreen={10}>
+          <Grid centered>
+            <Grid.Column mobile={16} tablet={10} computer={10} widescreen={10}>
               <div ref={this.handleContextRef}>
                 <EventList
                   loading={this.state.loadingInitial}
@@ -152,11 +167,10 @@ class EventDashboard extends Component {
               </div>
             </Grid.Column>
 
-            <Grid.Column tablet={16} computer={10} widescreen={10}>
+            <Grid.Column mobile={16} tablet={6} computer={6} widescreen={6}>
               <EventActivity
                 activities={activities}
                 contextRef={this.state.contextRef}
-                accordionIndex={accordionIndex}
                 handleAccordionClick={this.handleAccordionClick}
               />
             </Grid.Column>
@@ -168,7 +182,7 @@ class EventDashboard extends Component {
             )}
           </Grid>
         </Responsive>
-      </Fragment>
+      </div>
     );
   }
 }

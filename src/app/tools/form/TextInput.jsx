@@ -13,7 +13,7 @@ const TextInput = ({
       <input {...input} placeholder={placeholder} type={type} />
       {touched && error && (
         <div style={{ margin: '10px auto' }}>
-          <Label basic color="red">
+          <Label basic pointing color="red">
             {error}
           </Label>
         </div>

@@ -36,7 +36,7 @@ class PlaceInput extends Component {
         )}
         {touched && error && (
           <div style={{ margin: '10px auto' }}>
-            <Label basic color="red">
+            <Label basic pointing color="red">
               {error}
             </Label>
           </div>

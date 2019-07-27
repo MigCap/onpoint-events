@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Responsive,
-  Container,
-  Grid,
-  Menu,
-  Icon,
-  Header
-} from 'semantic-ui-react';
+import { Container, Grid, Header } from 'semantic-ui-react';
 
 const NotFound = () => {
   return (
@@ -18,7 +11,7 @@ const NotFound = () => {
               as="h1"
               textAlign="center"
               color="teal"
-              style={{ paddingTop: '70%' }}>
+              style={{ paddingTop: '40%' }}>
               <Header.Content>Error 404 not found!</Header.Content>
             </Header>
           </Grid.Column>

@@ -36,6 +36,19 @@
     padding: 10px 5px;
 }
 
+// BOTTOM NAVBAR MOBILE
+.bottom-navBar {
+    height: 3em;
+    a.item {
+        // background: rgba(0, 0, 0, 0.05) !important;
+        background: transparent !important;
+    }
+    a.item.active {
+        border-bottom: solid 5px #00b5ad !important;
+        background: transparent !important;
+    }
+}
+
 
 /*timepicker style*/
 
