@@ -1,4 +1,4 @@
-/* navbar styles */
+/* NAVBAR STYLES */
 
 
 /* .ui.fixed.menu {
@@ -10,7 +10,7 @@
 } */
 
 
-/*top navbar mobile style*/
+/* TOP NAVBAR MOBILE STYLES */
 
 .menu.ui.mini {
     background: transparent !important;
@@ -20,7 +20,7 @@
 
 .dropdown-icon {
     i {
-        color: #00b5ad;
+        color: #273746;
         font-size: 2.5em;
     }
     span {
@@ -36,7 +36,9 @@
     padding: 10px 5px;
 }
 
-// BOTTOM NAVBAR MOBILE
+
+/* BOTTOM NAVBAR MOBILE STYLES */
+
 .bottom-navBar {
     height: 3em;
     a.item {
@@ -44,13 +46,20 @@
         background: transparent !important;
     }
     a.item.active {
-        border-bottom: solid 5px #00b5ad !important;
+        border-bottom: solid 5px #273746 !important;
         background: transparent !important;
     }
 }
 
 
-/*timepicker style*/
+/* RECENT ACTIVITY STYLES */
+
+.ui.feed>.event>.label {
+    align-self: center;
+}
+
+
+/* TIMEPICKER STYLES */
 
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
     padding-left: 0;
@@ -67,7 +76,7 @@
 }
 
 
-/*chat comments*/
+/* CHAT COMMENTS STYLES */
 
 .ui.comments .comment .comments {
     padding-bottom: 0 !important;

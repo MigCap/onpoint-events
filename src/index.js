@@ -7,10 +7,11 @@ import App from './app/layout/App';
 import ScrollToTop from './app/tools/util/ScrollToTop';
 import ReduxToastr from 'react-redux-toastr';
 
+import registerServiceWorker from './registerServiceWorker';
+
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
-import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 

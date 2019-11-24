@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Segment,
   Item,
@@ -8,11 +8,11 @@ import {
   Label,
   Responsive,
   Grid
-} from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import EventListAttendee from './EventListAttendee';
-import format from 'date-fns/format';
-import { objectToArray } from '../../../app/tools/util/helpers';
+} from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import EventListAttendee from "./EventListAttendee";
+import format from "date-fns/format";
+import { objectToArray } from "../../../app/tools/util/helpers";
 
 class EventListItem extends Component {
   render() {
@@ -30,14 +30,14 @@ class EventListItem extends Component {
                     {event.title}
                   </Item.Header>
                   <Item.Description>
-                    Hosted by{' '}
+                    Hosted by{" "}
                     <Link to={`/profile/${event.hostUid}`}>
                       {event.hostedBy}
                     </Link>
                   </Item.Description>
                   {event.cancelled && (
                     <Label
-                      style={{ top: '-40px' }}
+                      style={{ top: "-40px" }}
                       ribbon="right"
                       color="red"
                       content="This event has been cancelled"
@@ -59,14 +59,14 @@ class EventListItem extends Component {
                     {event.title}
                   </Item.Header>
                   <Item.Description>
-                    Hosted by{' '}
+                    Hosted by{" "}
                     <Link to={`/profile/${event.hostUid}`}>
                       {event.hostedBy}
                     </Link>
                   </Item.Description>
                   {event.cancelled && (
                     <Label
-                      style={{ top: '-40px' }}
+                      style={{ top: "-40px" }}
                       ribbon="right"
                       color="red"
                       content="This event has been cancelled"
@@ -79,8 +79,8 @@ class EventListItem extends Component {
         </Responsive>
         <Segment secondary>
           <span>
-            <Icon name="clock" /> {format(event.date.toDate(), 'dddd Do MMMM')}{' '}
-            at {format(event.date.toDate(), 'HH:mm')} |
+            <Icon name="clock" /> {format(event.date.toDate(), "dddd Do MMMM YYYY")}{" "}
+            at {format(event.date.toDate(), "HH:mm")} |
           </span>
           <br />
           <span>
@@ -88,7 +88,7 @@ class EventListItem extends Component {
           </span>
         </Segment>
         <Segment>
-          <span style={{ paddingRight: '5px' }}>Attendees: </span>
+          <span style={{ paddingRight: "5px" }}>Attendees: </span>
           <List horizontal>
             {event.attendees &&
               objectToArray(event.attendees).map(attendee => (
@@ -104,7 +104,7 @@ class EventListItem extends Component {
                 <Button
                   as={Link}
                   to={`/event/${event.id}`}
-                  color="teal"
+                  color="blue"
                   floated="right"
                   content="View"
                 />

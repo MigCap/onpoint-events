@@ -69,36 +69,38 @@ const PeopleDashboard = ({ followings, followers }) => {
       </Responsive>
 
       <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-        <Grid>
-          <Grid.Column width={16}>
-            <Segment>
-              <Header as="h3" dividing content="People following me" />
-              <Card.Group itemsPerRow={8}>
-                {followers &&
-                  followers.map(follower => (
-                    <PersonCard
-                      key={follower.id}
-                      user={follower}
-                      loading={loading}
-                    />
-                  ))}
-              </Card.Group>
-            </Segment>
-            <Segment>
-              <Header dividing content="People I'm following" />
-              <Card.Group itemsPerRow={8}>
-                {followers &&
-                  followings.map(following => (
-                    <PersonCard
-                      key={following.id}
-                      user={following}
-                      loading={loading}
-                    />
-                  ))}
-              </Card.Group>
-            </Segment>
-          </Grid.Column>
-        </Grid>
+        <div className="people-dashboard">
+          <Grid>
+            <Grid.Column width={16}>
+              <Segment>
+                <Header as="h3" dividing content="People following me" />
+                <Card.Group itemsPerRow={8}>
+                  {followers &&
+                    followers.map(follower => (
+                      <PersonCard
+                        key={follower.id}
+                        user={follower}
+                        loading={loading}
+                      />
+                    ))}
+                </Card.Group>
+              </Segment>
+              <Segment>
+                <Header dividing content="People I'm following" />
+                <Card.Group itemsPerRow={8}>
+                  {followers &&
+                    followings.map(following => (
+                      <PersonCard
+                        key={following.id}
+                        user={following}
+                        loading={loading}
+                      />
+                    ))}
+                </Card.Group>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </div>
       </Responsive>
     </Fragment>
   );

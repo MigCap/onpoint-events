@@ -28,7 +28,7 @@ const NavBarDesktop = ({
             as={Link}
             to="/createEvent"
             floated="right"
-            color="yellow"
+            color="blue"
             inverted
             content="Create Event"
           />
