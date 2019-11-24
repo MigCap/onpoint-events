@@ -91,38 +91,40 @@ class EventDetailedPage extends Component {
       return <LoadingComponent inverted={true} />;
 
     return (
-      <Grid stackable>
-        <Grid.Column mobile={16} tablet={10} computer={10}>
-          <EventDetailedHeader
-            loading={loading}
-            event={event}
-            attendees={attendees}
-            isHost={isHost}
-            isGoing={isGoing}
-            goingToEvent={goingToEvent}
-            cancelGoingToEvent={cancelGoingToEvent}
-            authenticated={authenticated}
-            openModal={openModal}
-          />
-          <EventDetailedInfo
-            event={event}
-            authenticated={authenticated}
-            openModal={openModal}
-          />
-          {authenticated && (
-            <EventDetailedChat
-              eventChat={chatTree}
-              addEventComment={addEventComment}
-              eventId={event.id}
+      <div className="event-detailed">
+        <Grid stackable>
+          <Grid.Column mobile={16} tablet={10} computer={10}>
+            <EventDetailedHeader
+              loading={loading}
+              event={event}
+              attendees={attendees}
+              isHost={isHost}
+              isGoing={isGoing}
+              goingToEvent={goingToEvent}
+              cancelGoingToEvent={cancelGoingToEvent}
+              authenticated={authenticated}
+              openModal={openModal}
             />
-          )}
-        </Grid.Column>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <Grid.Column mobile={16} tablet={6} computer={6}>
-            <EventDetailedSidebar attendees={attendees} />
+            <EventDetailedInfo
+              event={event}
+              authenticated={authenticated}
+              openModal={openModal}
+            />
+            {authenticated && (
+              <EventDetailedChat
+                eventChat={chatTree}
+                addEventComment={addEventComment}
+                eventId={event.id}
+              />
+            )}
           </Grid.Column>
-        </Responsive>
-      </Grid>
+          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+            <Grid.Column mobile={16} tablet={6} computer={6}>
+              <EventDetailedSidebar attendees={attendees} />
+            </Grid.Column>
+          </Responsive>
+        </Grid>
+      </div>
     );
   }
 }

@@ -130,104 +130,106 @@ class EventForm extends Component {
       loading
     } = this.props;
     return (
-      <Grid>
-        <Grid.Column mobile={16} tablet={16} computer={14} widescreen={14}>
-          <Segment>
-            <Header as="h2" disabled>
-              Add your Event
-            </Header>
-            <Header sub color="teal" content="Event Details" />
-            <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
-              <Field
-                name="title"
-                type="text"
-                component={TextInput}
-                placeholder="Give your event a name"
-              />
-              <Field
-                name="category"
-                type="text"
-                component={SelectInput}
-                options={category}
-                placeholder="What is your event about"
-              />
-              <Field
-                name="description"
-                type="text"
-                component={TextArea}
-                rows={3}
-                placeholder="Tell us about your event"
-              />
-              <Header sub color="teal" content="Event Location details" />
-              <Field
-                name="city"
-                type="text"
-                component={PlaceInput}
-                options={{ types: ['(cities)'] }}
-                placeholder="Event city"
-                onSelect={this.handleCitySelect}
-              />
-              {this.state.scriptLoaded && (
+      <div className="event-form">
+        <Grid>
+          <Grid.Column mobile={16} tablet={16} computer={14} widescreen={14}>
+            <Segment>
+              <Header as="h2" disabled>
+                Add your Event
+              </Header>
+              <Header sub color="teal" content="Event Details" />
+              <Form onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
                 <Field
-                  name="venue"
+                  name="title"
+                  type="text"
+                  component={TextInput}
+                  placeholder="Give your event a name"
+                />
+                <Field
+                  name="category"
+                  type="text"
+                  component={SelectInput}
+                  options={category}
+                  placeholder="What is your event about"
+                />
+                <Field
+                  name="description"
+                  type="text"
+                  component={TextArea}
+                  rows={3}
+                  placeholder="Tell us about your event"
+                />
+                <Header sub color="teal" content="Event Location details" />
+                <Field
+                  name="city"
                   type="text"
                   component={PlaceInput}
-                  options={{
-                    location: new google.maps.LatLng(this.state.cityLatLng),
-                    radius: 1000,
-                    types: ['establishment']
-                  }}
-                  placeholder="Event venue"
-                  onSelect={this.handleVenueSelect}
+                  options={{ types: ['(cities)'] }}
+                  placeholder="Event city"
+                  onSelect={this.handleCitySelect}
                 />
-              )}
-              <Field
-                name="date"
-                type="text"
-                component={DateInput}
-                dateFormat="YYYY-MM-DD HH:mm"
-                timeFormat="HH:mm"
-                showTimeSelect
-                placeholder="Date and time of event"
-              />
-              <Grid.Column>
-                <Grid.Row>
-                  <Button.Group fluid>
-                    <Button
-                      type="button"
-                      disabled={loading}
-                      onClick={this.props.history.goBack}>
-                      Cancel
-                    </Button>
-                    <Button.Or />
-                    <Button
-                      type="submit"
-                      disabled={invalid || submitting || pristine}
-                      loading={loading}
-                      positive>
-                      Submit
-                    </Button>
-                  </Button.Group>
-                </Grid.Row>
-                <br />
-                <Grid.Row>
-                  {event.id && (
-                    <Button
-                      fluid
-                      onClick={() => cancelToggle(!event.cancelled, event.id)}
-                      type="button"
-                      color={event.cancelled ? 'green' : 'red'}
-                      content={
-                        event.cancelled ? 'Reactivate Event' : 'Cancel Event'
-                      }
-                    />
-                  )}
-                </Grid.Row>
-              </Grid.Column>
-            </Form>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+                {this.state.scriptLoaded && (
+                  <Field
+                    name="venue"
+                    type="text"
+                    component={PlaceInput}
+                    options={{
+                      location: new google.maps.LatLng(this.state.cityLatLng),
+                      radius: 1000,
+                      types: ['establishment']
+                    }}
+                    placeholder="Event venue"
+                    onSelect={this.handleVenueSelect}
+                  />
+                )}
+                <Field
+                  name="date"
+                  type="text"
+                  component={DateInput}
+                  dateFormat="YYYY-MM-DD HH:mm"
+                  timeFormat="HH:mm"
+                  showTimeSelect
+                  placeholder="Date and time of event"
+                />
+                <Grid.Column>
+                  <Grid.Row>
+                    <Button.Group fluid>
+                      <Button
+                        type="button"
+                        disabled={loading}
+                        onClick={this.props.history.goBack}>
+                        Cancel
+                      </Button>
+                      <Button.Or />
+                      <Button
+                        type="submit"
+                        disabled={invalid || submitting || pristine}
+                        loading={loading}
+                        positive>
+                        Submit
+                      </Button>
+                    </Button.Group>
+                  </Grid.Row>
+                  <br />
+                  <Grid.Row>
+                    {event.id && (
+                      <Button
+                        fluid
+                        onClick={() => cancelToggle(!event.cancelled, event.id)}
+                        type="button"
+                        color={event.cancelled ? 'green' : 'red'}
+                        content={
+                          event.cancelled ? 'Reactivate Event' : 'Cancel Event'
+                        }
+                      />
+                    )}
+                  </Grid.Row>
+                </Grid.Column>
+              </Form>
+            </Segment>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Grid,
   Loader,
@@ -7,18 +7,18 @@ import {
   Menu,
   Label,
   Icon
-} from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
-import { getEventsForDashboard } from '../eventActions';
-import EventList from '../EventList/EventList';
-import LoadingComponent from '../../../app/layout/LoadingComponent';
-import EventActivity from '../EventActivity/EventActivity';
+} from "semantic-ui-react";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { getEventsForDashboard } from "../eventActions";
+import EventList from "../EventList/EventList";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
+import EventActivity from "../EventActivity/EventActivity";
 
 const query = [
   {
-    collection: 'activity',
-    orderBy: ['timestamp', 'desc'],
+    collection: "activity",
+    orderBy: ["timestamp", "desc"],
     limit: 6
   }
 ];
@@ -38,8 +38,7 @@ class EventDashboard extends Component {
     moreEvents: false,
     loadingInitial: true,
     loadedEvents: [],
-    contextRef: {},
-    accordionIndex: 1
+    contextRef: {}
   };
 
   async componentDidMount() {
@@ -82,8 +81,6 @@ class EventDashboard extends Component {
     }
   };
 
-  handleContextRef = contextRef => this.setState({ contextRef });
-
   render() {
     const { loading, activities } = this.props;
     const { moreEvents, loadedEvents } = this.state;
@@ -94,37 +91,31 @@ class EventDashboard extends Component {
           <Menu.Item key="Events">
             <Icon name="calendar alternate outline" />
             Events
-            <Label style={{ opacity: '0' }}>
-              {activities !== undefined ? activities.length : '?'}
+            <Label style={{ opacity: "0" }}>
+              {activities !== undefined ? activities.length : "?"}
             </Label>
           </Menu.Item>
         ),
         render: () => (
-          <div ref={this.handleContextRef}>
-            <Grid style={{ minWidth: '100vw' }}>
-              <Grid.Column
-                mobile={16}
-                tablet={16}
-                computer={16}
-                widescreen={10}>
-                <EventList
-                  loading={this.state.loadingInitial}
-                  moreEvents={moreEvents}
-                  events={loadedEvents}
-                  getNextEvents={this.getNextEvents}
-                />
-              </Grid.Column>
-            </Grid>
-          </div>
+          <Grid>
+            <Grid.Column mobile={16} tablet={16} computer={16} widescreen={10}>
+              <EventList
+                loading={this.state.loadingInitial}
+                moreEvents={moreEvents}
+                events={loadedEvents}
+                getNextEvents={this.getNextEvents}
+              />
+            </Grid.Column>
+          </Grid>
         )
       },
       {
         menuItem: (
           <Menu.Item key="Events Activity">
             <Icon name="newspaper outline" />
-            Events Activity
-            <Label color="teal" size="mini" circular>
-              {activities !== undefined ? activities.length : '?'}
+            Recent Activity
+            <Label color="grey" size="mini" circular>
+              {activities !== undefined ? activities.length : "?"}
             </Label>
           </Menu.Item>
         ),
@@ -140,18 +131,23 @@ class EventDashboard extends Component {
       }
     ];
 
-    const color = 'teal';
+    const color = "grey";
 
-    if (this.state.loadingInitial) return <LoadingComponent inverted={true} />;
+    if (this.state.loadingInitial) {
+      return <LoadingComponent inverted={true} />
+    }
+
     return (
       <div className="events-list">
-        <Grid>
-          <Responsive {...Responsive.onlyMobile}>
-            <Tab
-              panes={panes}
-              menu={{ color, secondary: true, pointing: true }}
-            />
-          </Responsive>
+        <Grid centered>
+          <Grid.Column width={15}>
+            <Responsive {...Responsive.onlyMobile}>
+              <Tab
+                panes={panes}
+                menu={{ color, secondary: true, pointing: true }}
+              />
+            </Responsive>
+          </Grid.Column>
         </Grid>
 
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
@@ -176,10 +172,11 @@ class EventDashboard extends Component {
             </Grid.Column>
 
             {loading && (
-              <Grid.Column width={10}>
-                <Loader active={loading} />
+              <Grid.Column  mobile={16} tablet={6} computer={6} widescreen={10}>
+                <Loader active={loading} indeterminate inline/>
               </Grid.Column>
             )}
+
           </Grid>
         </Responsive>
       </div>

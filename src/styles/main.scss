@@ -98,7 +98,12 @@ body {
     }
 }
 
-.events-list {
+.events-list,
+.people-dashboard,
+.event-detailed,
+.event-form,
+.user-detailed-profile,
+.user-settings-page {
     min-height: calc(100vh - 3.5em);
     padding: 0 0 7em 0 !important;
     overflow: hidden;
@@ -108,7 +113,7 @@ body {
     }
     @include breakpoint(mobile,
     min) {
-        padding-top: 4em !important;
+        padding-top: 3rem !important;
     }
 }
 

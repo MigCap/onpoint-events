@@ -27,38 +27,40 @@ const SettingsDashboard = ({
   updateProfile
 }) => {
   return (
-    <Grid stackable reversed="mobile">
-      <Grid.Column width={12}>
-        <Switch>
-          <Redirect exact from="/settings" to="/settings/basic" />
-          <Route
-            path="/settings/basic"
-            render={() => (
-              <BasicPage initialValues={user} updateProfile={updateProfile} />
-            )}
-          />
-          <Route
-            path="/settings/about"
-            render={() => (
-              <AboutPage updateProfile={updateProfile} initialValues={user} />
-            )}
-          />
-          <Route path="/settings/photos" component={PhotosPage} />
-          <Route
-            path="/settings/account"
-            render={() => (
-              <AccountPage
-                updatePassword={updatePassword}
-                providerId={providerId}
-              />
-            )}
-          />
-        </Switch>
-      </Grid.Column>
-      <Grid.Column mobile={12} tablet={4} computer={4}>
-        <SettingsNav />
-      </Grid.Column>
-    </Grid>
+    <div className="user-settings-page">
+      <Grid stackable reversed="mobile">
+        <Grid.Column width={12}>
+          <Switch>
+            <Redirect exact from="/settings" to="/settings/basic" />
+            <Route
+              path="/settings/basic"
+              render={() => (
+                <BasicPage initialValues={user} updateProfile={updateProfile} />
+              )}
+            />
+            <Route
+              path="/settings/about"
+              render={() => (
+                <AboutPage updateProfile={updateProfile} initialValues={user} />
+              )}
+            />
+            <Route path="/settings/photos" component={PhotosPage} />
+            <Route
+              path="/settings/account"
+              render={() => (
+                <AccountPage
+                  updatePassword={updatePassword}
+                  providerId={providerId}
+                />
+              )}
+            />
+          </Switch>
+        </Grid.Column>
+        <Grid.Column mobile={12} tablet={4} computer={4}>
+          <SettingsNav />
+        </Grid.Column>
+      </Grid>
+    </div>
   );
 };
 

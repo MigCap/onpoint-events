@@ -79,25 +79,27 @@ class UserDetailedPage extends Component {
 
     if (loading) return <LoadingComponent inverted={true} />;
     return (
-      <Grid stackable>
-        <UserDetailedHeader profile={profile} />
-        <UserDetailedDescription profile={profile} />
-        <UserDetailedSidebar
-          unfollowUser={unfollowUser}
-          isFollowing={isFollowing}
-          profile={profile}
-          followUser={followUser}
-          isCurrentUser={isCurrentUser}
-        />
-
-        {photos && photos.length > 0 && <UserDetailedPhotos photos={photos} />}
-
-        <UserDetailedEvents
-          events={events}
-          eventsLoading={eventsLoading}
-          changeTab={this.changeTab}
-        />
-      </Grid>
+      <div className="user-detailed-profile">
+        <Grid stackable>
+          <UserDetailedHeader profile={profile} />
+          <UserDetailedDescription profile={profile} />
+          <UserDetailedSidebar
+            unfollowUser={unfollowUser}
+            isFollowing={isFollowing}
+            profile={profile}
+            followUser={followUser}
+            isCurrentUser={isCurrentUser}
+          />
+  
+          {photos && photos.length > 0 && <UserDetailedPhotos photos={photos} />}
+  
+          <UserDetailedEvents
+            events={events}
+            eventsLoading={eventsLoading}
+            changeTab={this.changeTab}
+          />
+        </Grid>
+      </div>
     );
   }
 }
