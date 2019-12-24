@@ -140,7 +140,7 @@ class EventDashboard extends Component {
     return (
       <div className="events-list">
         <Grid centered>
-          <Grid.Column width={15}>
+          <Grid.Column width={16}>
             <Responsive {...Responsive.onlyMobile}>
               <Tab
                 panes={panes}
