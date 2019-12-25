@@ -27,7 +27,7 @@ const panesMobile = [
 const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
   return (
     <Fragment>
-      <Grid.Column width={12}>
+      <Grid.Column width={16}>
         <Responsive {...Responsive.onlyMobile}>
           <Segment attached>
             <Header icon="calendar" content="Events" />
@@ -65,7 +65,7 @@ const UserDeteiledEvents = ({ events, eventsLoading, changeTab }) => {
         </Responsive>
       </Grid.Column>
 
-      <Grid.Column width={12}>
+      <Grid.Column width={16}>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <Segment attached>
             <Header icon="calendar" content="Events" />

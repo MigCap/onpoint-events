@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Grid,
   Loader,
@@ -138,7 +138,7 @@ class EventDashboard extends Component {
     }
 
     return (
-      <div className="events-list">
+      <Fragment>
         <Grid centered>
           <Grid.Column width={16}>
             <Responsive {...Responsive.onlyMobile}>
@@ -179,7 +179,7 @@ class EventDashboard extends Component {
 
           </Grid>
         </Responsive>
-      </div>
+      </Fragment>
     );
   }
 }

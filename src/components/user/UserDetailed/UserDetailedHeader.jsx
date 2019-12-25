@@ -24,10 +24,10 @@ const UserDetailedHeader = ({ profile }) => {
               {profile.occupation && profile.city && age && (
                 <Fragment>
                   <br />
-                  <Header as="h3">{profile.occupation}</Header>
+                  <Header as="h4">{age}, {profile.occupation}</Header>
                   <br />
-                  <Header as="h3">
-                    {age}, Lives in {profile.city || 'unknown city'}
+                  <Header as="h4">
+                    Lives in {profile.city || 'unknown city'}
                   </Header>
                 </Fragment>
               )}
