@@ -10,7 +10,7 @@ const UserDetailedSidebar = ({
   unfollowUser
 }) => {
   return (
-    <Grid.Column width={4}>
+    <Grid.Column width={4} stretched>
       <Segment>
         {isCurrentUser && (
           <Button
